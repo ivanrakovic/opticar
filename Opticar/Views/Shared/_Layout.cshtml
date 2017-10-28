@@ -34,7 +34,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin Section</a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                         @Html.ActionLink("Manufacturer", "Index", "Manufacturers", new object { }, new { @class = "dropdown-item"})
-                        <a class="dropdown-item" href="#">Another action</a>
+                        @Html.ActionLink("Precnik", "Index", "Diameters", new object { }, new { @class = "dropdown-item" })
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
