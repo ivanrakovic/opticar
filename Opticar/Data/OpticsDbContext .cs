@@ -24,5 +24,11 @@ namespace Opticar.Data
         {
             return new OpticsDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<OpticsDbContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

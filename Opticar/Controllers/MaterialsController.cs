@@ -28,7 +28,7 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var material = _db.Materials.Find(id);
+            Material material = _db.Materials.Find(id);
             if (material == null)
             {
                 return HttpNotFound();
@@ -66,7 +66,7 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var material = _db.Materials.Find(id);
+            Material material = _db.Materials.Find(id);
             if (material == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var material = _db.Materials.Find(id);
+            Material material = _db.Materials.Find(id);
             if (material == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace Opticar.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var material = _db.Materials.Find(id);
+            Material material = _db.Materials.Find(id);
             _db.Materials.Remove(material);
             _db.SaveChanges();
             return RedirectToAction("Index");
