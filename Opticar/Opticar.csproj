@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManufacturersController.cs" />
+    <Compile Include="Models\Optics\Materials.cs" />
     <Compile Include="Data\OpticsDbContext .cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -209,6 +210,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Optics\Diameter.cs" />
     <Compile Include="Models\Optics\Manufacturer.cs" />
+    <Compile Include="Models\Optics\MaterialType.cs" />
+    <Compile Include="Models\Static\OpticsEnums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

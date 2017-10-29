@@ -17,6 +17,8 @@ namespace Opticar.Data
 
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<Diameter> Diameters { get; set; }
+        public DbSet<MaterialType> MaterialTypes { get; set; }
+        public DbSet<Materials> Materials { get; set; }
 
         public static OpticsDbContext Create()
         {
