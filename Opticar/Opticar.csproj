@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManufacturersController.cs" />
+    <Compile Include="Controllers\MaterialTypesController.cs" />
     <Compile Include="Models\Optics\Material.cs" />
     <Compile Include="Data\OpticsDbContext .cs" />
     <Compile Include="Global.asax.cs">
@@ -360,6 +361,11 @@
     <Content Include="Views\Diameters\Details.cshtml" />
     <Content Include="Views\Diameters\Edit.cshtml" />
     <Content Include="Views\Diameters\Index.cshtml" />
+    <Content Include="Views\MaterialTypes\Create.cshtml" />
+    <Content Include="Views\MaterialTypes\Delete.cshtml" />
+    <Content Include="Views\MaterialTypes\Details.cshtml" />
+    <Content Include="Views\MaterialTypes\Edit.cshtml" />
+    <Content Include="Views\MaterialTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
