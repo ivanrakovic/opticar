@@ -200,7 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManufacturersController.cs" />
-    <Compile Include="Models\Optics\Materials.cs" />
+    <Compile Include="Models\Optics\Material.cs" />
     <Compile Include="Data\OpticsDbContext .cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

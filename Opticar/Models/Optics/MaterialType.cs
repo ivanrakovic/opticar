@@ -6,9 +6,9 @@ namespace Opticar.Models.Optics
 {
     public class MaterialType
     {
-        public string MaterialTypeId { get; set; }
+        public int MaterialTypeId { get; set; }
         [Required]
         public string Description { get; set; }
-
+        public ICollection<Material> Materials { get; set; }
     }
 }
