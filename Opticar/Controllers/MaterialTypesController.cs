@@ -28,7 +28,7 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MaterialType materialType = _db.MaterialTypes.Find(id);
+            var materialType = _db.MaterialTypes.Find(id);
             if (materialType == null)
             {
                 return HttpNotFound();
@@ -66,7 +66,7 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MaterialType materialType = _db.MaterialTypes.Find(id);
+            var materialType = _db.MaterialTypes.Find(id);
             if (materialType == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MaterialType materialType = _db.MaterialTypes.Find(id);
+            var materialType = _db.MaterialTypes.Find(id);
             if (materialType == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace Opticar.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MaterialType materialType = _db.MaterialTypes.Find(id);
+            var materialType = _db.MaterialTypes.Find(id);
             _db.MaterialTypes.Remove(materialType);
             _db.SaveChanges();
             return RedirectToAction("Index");
