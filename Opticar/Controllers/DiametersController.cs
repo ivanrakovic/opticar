@@ -28,7 +28,7 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Diameter diameter = db.Diameters.Find(id);
+            var diameter = db.Diameters.Find(id);
             if (diameter == null)
             {
                 return HttpNotFound();
@@ -66,7 +66,7 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Diameter diameter = db.Diameters.Find(id);
+            var diameter = db.Diameters.Find(id);
             if (diameter == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Diameter diameter = db.Diameters.Find(id);
+            var diameter = db.Diameters.Find(id);
             if (diameter == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace Opticar.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Diameter diameter = db.Diameters.Find(id);
+            var diameter = db.Diameters.Find(id);
             db.Diameters.Remove(diameter);
             db.SaveChanges();
             return RedirectToAction("Index");
