@@ -10,7 +10,7 @@ namespace Opticar.Data
     public class OpticsDbContext : DbContext
     {
         public OpticsDbContext()
-            : base("OpticsDb")
+            : base("name=DefaultConnection")
         {
             Configuration.LazyLoadingEnabled = false;
         }
