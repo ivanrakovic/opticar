@@ -9,6 +9,6 @@ namespace Opticar.Models.Optics
         public int MaterialTypeId { get; set; }
         [Required]
         public string Description { get; set; }
-        public ICollection<Material> Materials { get; set; }
+        public virtual ICollection<Material> Materials { get; set; }
     }
 }

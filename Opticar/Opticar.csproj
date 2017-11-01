@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -45,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -222,9 +222,6 @@
   <ItemGroup>
     <Content Include="ClientUI\css\bootstrap.css" />
     <Content Include="ClientUI\css\bootstrap.min.css" />
-    <Content Include="ClientUI\css\mdb.css" />
-    <Content Include="ClientUI\css\mdb.min.css" />
-    <Content Include="ClientUI\css\style.css" />
     <Content Include="ClientUI\img\lightbox\default-skin.png" />
     <Content Include="ClientUI\img\lightbox\default-skin.svg" />
     <Content Include="ClientUI\img\lightbox\preloader.gif" />
@@ -242,10 +239,6 @@
     <Content Include="ClientUI\js\bootstrap.js" />
     <Content Include="ClientUI\js\bootstrap.min.js" />
     <Content Include="ClientUI\js\jquery-3.2.1.min.js" />
-    <Content Include="ClientUI\js\mdb.js" />
-    <Content Include="ClientUI\js\mdb.min.js" />
-    <Content Include="ClientUI\js\popper.min.js" />
-    <Content Include="ClientUI\sass\README.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -274,39 +267,9 @@
     <Content Include="ClientUI\font\roboto\Roboto-Thin.ttf" />
     <Content Include="ClientUI\font\roboto\Roboto-Thin.woff" />
     <Content Include="ClientUI\font\roboto\Roboto-Thin.woff2" />
-    <Content Include="ClientUI\sass\mdb.scss" />
-    <Content Include="ClientUI\sass\mdb\free\data\_colors.scss" />
-    <Content Include="ClientUI\sass\mdb\free\data\_functions.scss" />
-    <Content Include="ClientUI\sass\mdb\free\data\_mixins.scss" />
-    <Content Include="ClientUI\sass\mdb\free\data\_prefixer.scss" />
-    <Content Include="ClientUI\sass\mdb\free\data\_variables-b4.scss" />
-    <Content Include="ClientUI\sass\mdb\free\data\_variables.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_animations.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_badge.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_breadcrumb.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_buttons.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_cards-basic.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_carousel-basic.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_collapse.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_deprecated.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_dropdowns.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_footer.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_forms-basic.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_global.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_helpers.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_jumbotron.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_list-group.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_masks.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_modals.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_msc.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_navbar.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_pagination.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_progress.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_tables.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_typography.scss" />
-    <Content Include="ClientUI\sass\mdb\free\_waves.scss" />
-    <Content Include="ClientUI\sass\mdb\_custom.scss" />
     <Content Include="nuget.config" />
+    <Content Include="ClientUI\sass\_bootswatch.scss" />
+    <Content Include="ClientUI\sass\_variables.scss" />
     <None Include="Properties\PublishProfiles\Release.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -421,8 +384,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

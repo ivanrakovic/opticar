@@ -10,6 +10,6 @@ namespace Opticar.Models.Optics
         public decimal Value { get; set; }
 
         public MaterialType MaterialTypeId { get; set; }
-        public MaterialType MaterialType { get; set; }
+        public virtual MaterialType MaterialType { get; set; }
     }
 }

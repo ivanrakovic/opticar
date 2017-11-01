@@ -21,14 +21,11 @@ namespace Opticar
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/ClientUI/js/popper.min.js",
-                      "~/ClientUI/js/mdb.js",
                 "~/ClientUI/js/bootstrap.js" ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/ClientUI/css/bootstrap.css",
-                      "~/ClientUI/css/style.css",
-                      "~/ClientUI/css/mdb.css"));
+                      "~/ClientUI/css/bootstrap.css"
+                      ));
         }
     }
 }

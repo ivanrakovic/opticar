@@ -27,7 +27,6 @@ namespace Opticar.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<OpticsDbContext>(null);
             base.OnModelCreating(modelBuilder);
         }
     }
