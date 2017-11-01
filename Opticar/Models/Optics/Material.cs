@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Opticar.Models.Optics
 {
@@ -8,8 +9,8 @@ namespace Opticar.Models.Optics
 
         [Required]
         public decimal Value { get; set; }
-
-        public MaterialType MaterialTypeId { get; set; }
+    
+        public int MaterialTypeId { get; set; }
         public virtual MaterialType MaterialType { get; set; }
     }
 }

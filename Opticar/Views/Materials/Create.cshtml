@@ -1,40 +1,50 @@
-﻿@model Opticar.Models.Optics.Material
+﻿@model Opticar.Models.ViewModels.MaterialViewModel
 
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+    <h2>Create</h2>
 
+<div class="well bs-component">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Material</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <form class="form-horizontal">
+            <fieldset>
+                <legend>Material</legend>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-10">
+                        @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control" } })
+                        <span class="help-block">Tip precnika Zole</span>
+                        @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MaterialTypes, htmlAttributes: new { @class = "control-label col-lg-2" })
+                    <div class="col-lg-10">
+                        @Html.DropDownListFor(model => model.MaterialTypeId, Model.MaterialTypes, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <p>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        </p>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+

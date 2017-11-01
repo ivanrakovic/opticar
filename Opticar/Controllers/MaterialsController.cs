@@ -7,7 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Opticar.Data;
+using Opticar.Models.Base;
 using Opticar.Models.Optics;
+using Opticar.Models.ViewModels;
 
 namespace Opticar.Controllers
 {
@@ -28,18 +30,25 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Material material = db.Materials.Find(id);
+            var material = db.Materials.Find(id);
             if (material == null)
             {
                 return HttpNotFound();
             }
+
+            
+
             return View(material);
         }
 
         // GET: Materials/Create
         public ActionResult Create()
         {
-            return View();
+            var viewModel = new MaterialViewModel
+            {
+                MaterialTypes = db.MaterialTypes.Select(mt => new SelectListItem {Value = mt.MaterialTypeId.ToString(), Text = mt.Description})
+            };
+            return View(viewModel);
         }
 
         // POST: Materials/Create
@@ -47,11 +56,15 @@ namespace Opticar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaterialId,Value")] Material material)
+        public ActionResult Create(MaterialViewModel material)
         {
             if (ModelState.IsValid)
             {
-                db.Materials.Add(material);
+                db.Materials.Add(new Material
+                {
+                    Value = material.Value,
+                    MaterialTypeId = material.MaterialTypeId
+                });
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
