@@ -36,9 +36,12 @@ namespace Opticar.Controllers
                 return HttpNotFound();
             }
 
-            
+            var viewModel = new MaterialViewModel
+            {
+                MaterialTypes = db.MaterialTypes.Select(mt => new SelectListItem { Value = mt.MaterialTypeId.ToString(), Text = mt.Description , Selected = mt.MaterialTypeId.Equals(id)})
+            };
 
-            return View(material);
+            return View(viewModel);
         }
 
         // GET: Materials/Create
