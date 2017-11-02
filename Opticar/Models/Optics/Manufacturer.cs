@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc.Html;
 
 namespace Opticar.Models.Optics
 {
@@ -11,8 +12,9 @@ namespace Opticar.Models.Optics
     {
         public int ManufacturerId { get; set; }
         [Required]
-        [StringLength(450)]
+        [StringLength(100)]
         [MaxLength(50), MinLength(2)]
+        [Index("IX_ManufacturerName", IsUnique = true)]
         public string Name { get; set; }
     }
 }

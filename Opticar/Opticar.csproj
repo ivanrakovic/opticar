@@ -193,6 +193,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201711022220406_InitialCreate.cs" />
+    <Compile Include="Migrations\201711022220406_InitialCreate.Designer.cs">
+      <DependentUpon>201711022220406_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711022229105_AddDiameterValueUniqueIndex.cs" />
+    <Compile Include="Migrations\201711022229105_AddDiameterValueUniqueIndex.Designer.cs">
+      <DependentUpon>201711022229105_AddDiameterValueUniqueIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Resources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -368,6 +377,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711022220406_InitialCreate.resx">
+      <DependentUpon>201711022220406_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711022229105_AddDiameterValueUniqueIndex.resx">
+      <DependentUpon>201711022229105_AddDiameterValueUniqueIndex.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.Designer.cs</LastGenOutput>
