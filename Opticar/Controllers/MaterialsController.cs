@@ -20,7 +20,15 @@ namespace Opticar.Controllers
         // GET: Materials
         public ActionResult Index()
         {
-            return View(db.Materials.ToList());
+            var matList = db.Materials.ToList();
+            var viemModel = matList.Select(mat => new MaterialViewModel
+                {
+                    MaterialId = mat.MaterialId,
+                    Value = mat.Value,
+                    SelectedText = db.MaterialTypes.Find(mat.MaterialId)?.Description
+                })
+                .ToList();
+            return View(viemModel);
         }
 
         // GET: Materials/Details/5
@@ -38,7 +46,8 @@ namespace Opticar.Controllers
 
             var viewModel = new MaterialViewModel
             {
-                MaterialTypes = db.MaterialTypes.Select(mt => new SelectListItem { Value = mt.MaterialTypeId.ToString(), Text = mt.Description , Selected = mt.MaterialTypeId.Equals(id)})
+                Value = material.Value,
+                SelectedText = db.MaterialTypes.Find(id)?.Description
             };
 
             return View(viewModel);
@@ -49,14 +58,12 @@ namespace Opticar.Controllers
         {
             var viewModel = new MaterialViewModel
             {
-                MaterialTypes = db.MaterialTypes.Select(mt => new SelectListItem {Value = mt.MaterialTypeId.ToString(), Text = mt.Description})
+                MaterialTypes = db.MaterialTypes.Select(mt => new SelectListItem { Value = mt.MaterialTypeId.ToString(), Text = mt.Description })
             };
             return View(viewModel);
         }
 
-        // POST: Materials/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(MaterialViewModel material)
@@ -82,24 +89,35 @@ namespace Opticar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Material material = db.Materials.Find(id);
+            var material = db.Materials.Find(id);
             if (material == null)
             {
                 return HttpNotFound();
             }
-            return View(material);
+
+            var viewModel = new MaterialViewModel
+            {
+                MaterialId = material.MaterialId,
+                Value = material.Value,
+                MaterialTypes = db.MaterialTypes.Select(mt => new SelectListItem { Value = mt.MaterialTypeId.ToString(), Text = mt.Description, Selected = mt.MaterialTypeId.Equals(material.MaterialId) })
+            };
+
+            return View(viewModel);
         }
 
-        // POST: Materials/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaterialId,Value")] Material material)
+        public ActionResult Edit(MaterialViewModel material)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(material).State = EntityState.Modified;
+                db.Entry(new Material
+                {
+                    Value = material.Value,
+                    MaterialTypeId = material.MaterialTypeId
+                }).State = EntityState.Modified;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -109,16 +127,26 @@ namespace Opticar.Controllers
         // GET: Materials/Delete/5
         public ActionResult Delete(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Material material = db.Materials.Find(id);
+            var material = db.Materials.Find(id);
             if (material == null)
             {
                 return HttpNotFound();
             }
-            return View(material);
+
+            var viewModel = new MaterialViewModel
+            {
+                MaterialId = material.MaterialId,
+                Value = material.Value,
+                SelectedText = db.MaterialTypes.Find(id)?.Description
+            };
+
+            return View(viewModel);
+
         }
 
         // POST: Materials/Delete/5
@@ -126,7 +154,7 @@ namespace Opticar.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Material material = db.Materials.Find(id);
+            var material = db.Materials.Find(id);
             db.Materials.Remove(material);
             db.SaveChanges();
             return RedirectToAction("Index");

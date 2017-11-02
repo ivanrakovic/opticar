@@ -1,32 +1,28 @@
-﻿@model Opticar.Models.Optics.Material
+﻿@model Opticar.Models.ViewModels.MaterialViewModel
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalji</h2>
 
-<div>
-    <h4>Material</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Value)
-        </dt>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Material</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-lg-2">@Html.DisplayNameFor(m => m.MaterialId)</div>
+                <div class="col-lg-10">@Html.DisplayFor(m => m.SelectedText)</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Value)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.MaterialId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.MaterialId)
-        </dd>
-
-    </dl>
+                <div class="col-lg-2">@Html.DisplayNameFor(m => m.Value)</div>
+                <div class="col-lg-10">@Html.DisplayFor(m => m.Value)</div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaterialId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div>
+    @Html.ActionLink(Resources.Global.Edit, "Edit", new { id = Model.MaterialId }) |
+    @Html.ActionLink(Resources.Global.BackToList, "Index")
+</div>

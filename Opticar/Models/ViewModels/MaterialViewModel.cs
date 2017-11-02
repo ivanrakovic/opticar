@@ -16,5 +16,6 @@ namespace Opticar.Models.ViewModels
         [Required]
         public int MaterialTypeId { get; set; }
         public IEnumerable<SelectListItem> MaterialTypes { get; set; }
+        public string SelectedText { get; set; }
     }
 }

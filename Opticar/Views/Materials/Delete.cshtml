@@ -1,4 +1,4 @@
-﻿@model Opticar.Models.Optics.Material
+﻿@model Opticar.Models.ViewModels.MaterialViewModel
 
 @{
     ViewBag.Title = "Delete";
@@ -8,25 +8,29 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Material</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Value)
-        </dt>
+    
+        <div class="col-lg-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Material</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-2">@Html.DisplayNameFor(m => m.MaterialId)</div>
+                    <div class="col-lg-10">@Html.DisplayFor(m => m.SelectedText)</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Value)
-        </dd>
-
-    </dl>
+                    <div class="col-lg-2">@Html.DisplayNameFor(m => m.Value)</div>
+                    <div class="col-lg-10">@Html.DisplayFor(m => m.Value)</div>
+                </div>
+            </div>
+        </div>
+    
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="@Global.Delete" class="btn btn-default" /> |
+            @Html.ActionLink(Resources.Global.BackToList, "Index")
         </div>
     }
 </div>

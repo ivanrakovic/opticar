@@ -1,10 +1,11 @@
-﻿@model Opticar.Models.ViewModels.MaterialViewModel
+﻿
+@model Opticar.Models.ViewModels.MaterialViewModel
 
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>@Global.Edit</h2>
 
 
 @using (Html.BeginForm())
@@ -24,17 +25,26 @@
                 @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaterialTypes, htmlAttributes: new { @class = "control-label col-lg-2" })
+            <div class="col-lg-10">
+                @Html.DropDownListFor(model => model.MaterialTypeId, Model.MaterialTypes, new
+           {
+               disabled = "disabled"  , @class = "form-control"
 
+           })
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="@Resources.Global.Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Global.BackToList, "Index")
 </div>
 
 @section Scripts {
