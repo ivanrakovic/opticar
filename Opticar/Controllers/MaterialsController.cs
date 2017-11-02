@@ -34,11 +34,12 @@ namespace Opticar.Controllers
         // GET: Materials/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            var pId = id ?? -1;
+            if (pId == -1)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var material = db.Materials.Find(id);
+            var material = db.Materials.Find(pId);
             if (material == null)
             {
                 return HttpNotFound();
@@ -46,6 +47,7 @@ namespace Opticar.Controllers
 
             var viewModel = new MaterialViewModel
             {
+                MaterialId = material.MaterialId,
                 Value = material.Value,
                 SelectedText = db.MaterialTypes.Find(material.MaterialTypeId)?.Description
             };
@@ -85,11 +87,12 @@ namespace Opticar.Controllers
         // GET: Materials/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            var pId = id ?? -1;
+            if (pId == -1)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var material = db.Materials.Find(id);
+            var material = db.Materials.Find(pId);
             if (material == null)
             {
                 return HttpNotFound();
@@ -99,7 +102,7 @@ namespace Opticar.Controllers
             {
                 MaterialId = material.MaterialId,
                 Value = material.Value,
-                MaterialTypes = db.MaterialTypes.Select(mt => new SelectListItem { Value = mt.MaterialTypeId.ToString(), Text = mt.Description, Selected = mt.MaterialTypeId.Equals(material.MaterialId) })
+                SelectedText = db.MaterialTypes.Find(material.MaterialTypeId)?.Description
             };
 
             return View(viewModel);
@@ -112,11 +115,13 @@ namespace Opticar.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(new Material
+                var mat = new Material
                 {
-                    Value = material.Value,
-                    MaterialTypeId = material.MaterialTypeId
-                }).State = EntityState.Modified;
+                    MaterialId = material.MaterialId,
+                    Value = material.Value
+                };
+                db.Materials.Attach(mat);
+                db.Entry(mat).Property(x => x.Value).IsModified = true;
 
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -127,12 +132,12 @@ namespace Opticar.Controllers
         // GET: Materials/Delete/5
         public ActionResult Delete(int? id)
         {
-
-            if (id == null)
+            var pId = id ?? -1;
+            if (pId == -1)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var material = db.Materials.Find(id);
+            var material = db.Materials.Find(pId);
             if (material == null)
             {
                 return HttpNotFound();
@@ -142,7 +147,7 @@ namespace Opticar.Controllers
             {
                 MaterialId = material.MaterialId,
                 Value = material.Value,
-                SelectedText = db.MaterialTypes.Find(id)?.Description
+                SelectedText = db.MaterialTypes.Find(material.MaterialTypeId)?.Description
             };
 
             return View(viewModel);
