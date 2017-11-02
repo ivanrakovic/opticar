@@ -25,7 +25,7 @@ namespace Opticar.Controllers
                 {
                     MaterialId = mat.MaterialId,
                     Value = mat.Value,
-                    SelectedText = db.MaterialTypes.Find(mat.MaterialTypeId)?.Description
+                    SelectedText = db.MaterialTypes.Find(mat.MaterialTypeId).Description
                 })
                 .ToList().OrderBy(x => x.SelectedText).ThenBy(x=>x.Value);
             return View(viemModel);
@@ -49,7 +49,7 @@ namespace Opticar.Controllers
             {
                 MaterialId = material.MaterialId,
                 Value = material.Value,
-                SelectedText = db.MaterialTypes.Find(material.MaterialTypeId)?.Description
+                SelectedText = db.MaterialTypes.Find(material.MaterialTypeId).Description
             };
 
             return View(viewModel);
@@ -102,7 +102,7 @@ namespace Opticar.Controllers
             {
                 MaterialId = material.MaterialId,
                 Value = material.Value,
-                SelectedText = db.MaterialTypes.Find(material.MaterialTypeId)?.Description
+                SelectedText = db.MaterialTypes.Find(material.MaterialTypeId).Description
             };
 
             return View(viewModel);
@@ -147,7 +147,7 @@ namespace Opticar.Controllers
             {
                 MaterialId = material.MaterialId,
                 Value = material.Value,
-                SelectedText = db.MaterialTypes.Find(material.MaterialTypeId)?.Description
+                SelectedText = db.MaterialTypes.Find(material.MaterialTypeId).Description
             };
 
             return View(viewModel);
