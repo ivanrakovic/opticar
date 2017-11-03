@@ -1,32 +1,51 @@
-﻿@model Opticar.Models.Optics.DeliveryTime
+﻿@using Resources
+@model Opticar.Models.Optics.DeliveryTime
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = @Global.DeleteInfo;
 }
 
-<h2>Delete</h2>
+<h3>@Global.DeleteInfo</h3>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>DeliveryTime</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+<div class="alert alert-dismissible alert-warning col-lg-4">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="text-danger">@Global.Warning!</h4>
+    <p>@Global.DeleteWarning?</p>
+    <p> @Html.ActionLink(Global.BackToList, "Index", new {}, new { @class = "alert-link" })</p>
 </div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+            <h4 class="card-header">Material</h4>
+
+            <div class="card-block">
+                <div>
+                    <table class="table table-striped table-hover ">
+                        <tbody>
+                        <tr>
+                            <td><h6>@Html.DisplayNameFor(model => model.Description):</h6></td>
+                            <td>@Html.DisplayFor(model => model.Description)</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="@Global.Delete" class="btn btn-danger" />
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.ActionLink(Resources.Global.BackToList, "Index")
+        

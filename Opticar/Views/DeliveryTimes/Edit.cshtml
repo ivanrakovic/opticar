@@ -1,7 +1,8 @@
-﻿@model Opticar.Models.Optics.DeliveryTime
+﻿@using Resources
+@model Opticar.Models.Optics.DeliveryTime
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = @Global.Edit;
 }
 
 <h2>Edit</h2>
@@ -11,9 +12,9 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>DeliveryTime</h4>
-        <hr />
+    <div class="card">
+        <h4 class="card-header">DeliveryTime</h4>
+        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.DeliveryTimeId)
 
@@ -34,7 +35,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Global.BackToList, "Index")
 </div>
 
 @section Scripts {
