@@ -29,5 +29,7 @@ namespace Opticar.Data
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<Opticar.Models.Optics.DeliveryTime> DeliveryTimes { get; set; }
     }
 }
