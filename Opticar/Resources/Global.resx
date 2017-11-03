@@ -132,6 +132,12 @@
   <data name="Delete" xml:space="preserve">
     <value>Obrišite</value>
   </data>
+  <data name="DeleteInfo" xml:space="preserve">
+    <value>Brisanje</value>
+  </data>
+  <data name="DeleteWarning" xml:space="preserve">
+    <value>Da li želite da obrišete</value>
+  </data>
   <data name="Details" xml:space="preserve">
     <value>Detalji</value>
   </data>
@@ -140,5 +146,8 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Sačuvajte</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Upozorenje</value>
   </data>
 </root>

@@ -2,47 +2,54 @@
 @model Opticar.Models.ViewModels.MaterialViewModel
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = @Global.DeleteInfo;
 }
 
-<h2>Delete</h2>
+<h2>@Global.DeleteInfo</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+
+<div class="alert alert-dismissible alert-warning col-lg-4">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="text-danger">@Global.Warning!</h4>
+    <p>@Global.DeleteWarning?</p>
+    <p> @Html.ActionLink(Global.BackToList, "Index", new {}, new { @class = "alert-link" })</p>
+</div>
+<h3></h3>
 <div class="row">
     <div class="col-lg-4">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">Material</h3>
-            </div>
-            <div class="panel-body">
+        <div class="card">
+            <h3 class="card-header">Material</h3>
+
+            <div class="card-block">
                 <div>
                     <table class="table table-striped table-hover ">
                         <tbody>
                         <tr>
-                            <td><b>@Html.DisplayNameFor(m => m.MaterialId):</b></td>
+                            <td><h6>@Html.DisplayNameFor(m => m.MaterialId):</h6></td>
                             <td>@Html.DisplayFor(m => m.SelectedText)</td>
                         </tr>
                         <tr>
-                            <td><b>@Html.DisplayNameFor(m => m.Value):</b></td>
+                            <td><h6>@Html.DisplayNameFor(m => m.Value):</h6></td>
                             <td>@Html.DisplayFor(m => m.Value)</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
+                <div class="card-footer text-muted text-center">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="@Global.Delete" class="btn btn-danger" />
+                        </div>
+                    }
+                </div>
+
             </div>
         </div>
     </div>
 </div>
-<div>
 
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="@Global.Delete" class="btn btn-default" /> |
-            @Html.ActionLink(Resources.Global.BackToList, "Index")
-        </div>
-    }
-</div>
+@Html.ActionLink(Resources.Global.BackToList, "Index")
+        
