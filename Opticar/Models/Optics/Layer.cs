@@ -4,19 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc.Html;
 
 namespace Opticar.Models.Optics
 {
-    public class Manufacturer
+    public class Layer
     {
-        public int ManufacturerId { get; set; }
-        [Required]
+        public int LayerId { get; set; }
         [StringLength(100)]
         [MaxLength(50), MinLength(2)]
-        [Index("IX_ManufacturerName", IsUnique = true)]
+        [Index("IX_LayerName", IsUnique = true)]
         public string Name { get; set; }
 
-        public virtual ICollection<Layer> Layers { get; set; }
+        public int ManufacturerId { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
     }
 }
