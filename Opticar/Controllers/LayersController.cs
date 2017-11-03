@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Opticar.Data;
 using Opticar.Models.Optics;
+using Opticar.Models.ViewModels;
 
 namespace Opticar.Controllers
 {
@@ -25,28 +26,39 @@ namespace Opticar.Controllers
         // GET: Layers/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            var pId = id ?? -1;
+            if (pId == -1)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var layer = db.Layers.Find(id);
+            var layer = db.Layers.Find(pId);
             if (layer == null)
             {
                 return HttpNotFound();
             }
-            return View(layer);
+
+            var viewModel = new LayersViewModel 
+            {
+                LayerId = layer.LayerId,
+                Name = layer.Name,
+                SelectedText = db.Manufacturers.Find(layer.ManufacturerId).Name
+            };
+
+            return View(viewModel);
+
         }
 
         // GET: Layers/Create
         public ActionResult Create()
         {
             ViewBag.ManufacturerId = new SelectList(db.Manufacturers, "ManufacturerId", "Name");
-            return View();
+            var viewModel = new LayersViewModel
+            {
+                Manufacturers = db.Manufacturers.Select(mt => new SelectListItem { Value = mt.ManufacturerId.ToString(), Text = mt.Name })
+            };
+            return View(viewModel);
         }
 
-        // POST: Layers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "LayerId,Name,ManufacturerId")] Layer layer)
@@ -65,17 +77,26 @@ namespace Opticar.Controllers
         // GET: Layers/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            var pId = id ?? -1;
+            if (pId == -1)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var layer = db.Layers.Find(id);
+            var layer = db.Layers.Find(pId);
             if (layer == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ManufacturerId = new SelectList(db.Manufacturers, "ManufacturerId", "Name", layer.ManufacturerId);
-            return View(layer);
+
+            var viewModel = new LayersViewModel
+            {
+                LayerId = layer.LayerId,
+                Name = layer.Name,
+                SelectedText = db.Manufacturers.Find(layer.ManufacturerId).Name
+            };
+
+            return View(viewModel);
+
         }
 
         // POST: Layers/Edit/5
@@ -83,31 +104,47 @@ namespace Opticar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LayerId,Name,ManufacturerId")] Layer layer)
+        public ActionResult Edit(LayersViewModel layer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(layer).State = EntityState.Modified;
+                var lay = new Layer
+                {
+                    LayerId = layer.LayerId,
+                    Name = layer.Name
+                };
+                db.Layers.Attach(lay);
+                db.Entry(lay).Property(x => x.Name).IsModified = true;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ManufacturerId = new SelectList(db.Manufacturers, "ManufacturerId", "Name", layer.ManufacturerId);
             return View(layer);
         }
 
         // GET: Layers/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            var pId = id ?? -1;
+            if (pId == -1)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var layer = db.Layers.Find(id);
+            var layer = db.Layers.Find(pId);
             if (layer == null)
             {
                 return HttpNotFound();
             }
-            return View(layer);
+
+            var viewModel = new LayersViewModel
+            {
+                LayerId = layer.LayerId,
+                Name = layer.Name,
+                SelectedText = db.Manufacturers.Find(layer.ManufacturerId).Name
+            };
+
+            return View(viewModel);
+
         }
 
         // POST: Layers/Delete/5

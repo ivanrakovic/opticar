@@ -1,20 +1,32 @@
-﻿@model Opticar.Models.Optics.Layer
+﻿@model Opticar.Models.ViewModels.LayersViewModel
 
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Dodavanje novih slojeva</h2>
+<p>
+    Dodavanje slojeva
+</p>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Layer</h4>
-        <hr />
+
+    <div class="card">
+        <h3 class="card-header">Slojevi</h3>
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Manufacturers, "ManufacturerId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.ManufacturerId, Model.Manufacturers, Resources.Global.SelectOne, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ManufacturerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -23,24 +35,22 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ManufacturerId, "ManufacturerId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ManufacturerId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ManufacturerId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-lg-10 col-lg-offset-2">
+                <p>
+                    <button type="submit" class="btn btn-primary">@Resources.Global.Commit</button>
+                </p>
             </div>
         </div>
     </div>
+
+
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Resources.Global.BackToList, "Index")
 </div>
 
 @section Scripts {

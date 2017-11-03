@@ -151,6 +151,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Odaberite vrednost.
+        /// </summary>
+        public static string SelectOne {
+            get {
+                return ResourceManager.GetString("SelectOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Upozorenje.
         /// </summary>
         public static string Warning {

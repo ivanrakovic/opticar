@@ -218,6 +218,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Optics\DeliveryTime.cs" />
     <Compile Include="Models\Optics\Layer.cs" />
+    <Compile Include="Models\ViewModels\LayersViewModel.cs" />
     <Compile Include="Resources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

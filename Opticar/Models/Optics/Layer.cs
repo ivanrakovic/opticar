@@ -14,7 +14,6 @@ namespace Opticar.Models.Optics
         [MaxLength(50), MinLength(2)]
         [Index("IX_LayerName", IsUnique = true)]
         public string Name { get; set; }
-
         public int ManufacturerId { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
     }

@@ -1,34 +1,36 @@
-﻿@model Opticar.Models.Optics.Layer
+﻿@model Opticar.Models.ViewModels.LayersViewModel
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalji</h2>
 
-<div>
-    <h4>Layer</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Manufacturer.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Manufacturer.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-    </dl>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+           <h3 class="card-header">Sloj</h3>
+            
+            <div class="card-block">
+                <div>
+                    <table class="table table-striped table-hover">
+                        <tbody>
+                            <tr>
+                                <td><h6>@Html.DisplayNameFor(m => m.ManufacturerId):</h6></td>
+                                <td>@Html.DisplayFor(m => m.SelectedText)</td>
+                            </tr>
+                            <tr>
+                                <td><h6>@Html.DisplayNameFor(m => m.Name):</h6></td>
+                                <td>@Html.DisplayFor(m => m.Name)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.LayerId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div>
+    @Html.ActionLink(Resources.Global.Edit, "Edit", new { id = Model.LayerId }) |
+    @Html.ActionLink(Resources.Global.BackToList, "Index")
+</div>

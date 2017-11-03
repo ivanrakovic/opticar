@@ -147,6 +147,9 @@
   <data name="Save" xml:space="preserve">
     <value>Sačuvajte</value>
   </data>
+  <data name="SelectOne" xml:space="preserve">
+    <value>Odaberite vrednost</value>
+  </data>
   <data name="Warning" xml:space="preserve">
     <value>Upozorenje</value>
   </data>
