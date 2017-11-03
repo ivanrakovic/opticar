@@ -9,7 +9,8 @@ namespace Opticar.Models.Optics
     {
         public int MaterialTypeId { get; set; }
         [Required]
-        [StringLength(100)]
+        [StringLength(50)]
+        [Index("IX_MaterialTypeDesc", IsUnique = true)]
         public string Description { get; set; }
         public virtual ICollection<Material> Materials { get; set; }
     }
