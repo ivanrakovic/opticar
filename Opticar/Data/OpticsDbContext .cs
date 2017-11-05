@@ -33,5 +33,7 @@ namespace Opticar.Data
         public System.Data.Entity.DbSet<Opticar.Models.Optics.DeliveryTime> DeliveryTimes { get; set; }
 
         public System.Data.Entity.DbSet<Opticar.Models.Optics.Layer> Layers { get; set; }
+
+        public System.Data.Entity.DbSet<Opticar.Models.Optics.LenseType> LenseTypes { get; set; }
     }
 }

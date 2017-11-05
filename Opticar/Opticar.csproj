@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -195,6 +196,7 @@
   <ItemGroup>
     <Compile Include="Controllers\DeliveryTimesController.cs" />
     <Compile Include="Controllers\LayersController.cs" />
+    <Compile Include="Controllers\LenseTypesController.cs" />
     <Compile Include="Migrations\201711022220406_InitialCreate.cs" />
     <Compile Include="Migrations\201711022220406_InitialCreate.Designer.cs">
       <DependentUpon>201711022220406_InitialCreate.cs</DependentUpon>
@@ -215,9 +217,14 @@
     <Compile Include="Migrations\201711031851491_LayersAdded.Designer.cs">
       <DependentUpon>201711031851491_LayersAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711051536538_AddedLenseType.cs" />
+    <Compile Include="Migrations\201711051536538_AddedLenseType.Designer.cs">
+      <DependentUpon>201711051536538_AddedLenseType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Optics\DeliveryTime.cs" />
     <Compile Include="Models\Optics\Layer.cs" />
+    <Compile Include="Models\Optics\LenseType.cs" />
     <Compile Include="Models\ViewModels\LayersViewModel.cs" />
     <Compile Include="Resources\Global.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -256,6 +263,7 @@
     <Compile Include="Models\Static\OpticsEnums.cs" />
     <Compile Include="Models\ViewModels\MaterialViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\LenseHelper.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -388,6 +396,11 @@
     <Content Include="Views\Layers\Details.cshtml" />
     <Content Include="Views\Layers\Edit.cshtml" />
     <Content Include="Views\Layers\Index.cshtml" />
+    <Content Include="Views\LenseTypes\Create.cshtml" />
+    <Content Include="Views\LenseTypes\Delete.cshtml" />
+    <Content Include="Views\LenseTypes\Details.cshtml" />
+    <Content Include="Views\LenseTypes\Edit.cshtml" />
+    <Content Include="Views\LenseTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -418,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711031851491_LayersAdded.resx">
       <DependentUpon>201711031851491_LayersAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711051536538_AddedLenseType.resx">
+      <DependentUpon>201711051536538_AddedLenseType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

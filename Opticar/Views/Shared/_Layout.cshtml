@@ -10,7 +10,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,6 +30,7 @@
                             @Html.ActionLink("Materijali", "Index", "Materials", new object { }, new { @class = "dropdown-item" })
                             @Html.ActionLink("Vreme dostave", "Index", "DeliveryTimes", new object { }, new { @class = "dropdown-item" })
                             @Html.ActionLink("Slojevi", "Index", "Layers", new object { }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Tip sočiva", "Index", "LenseTypes", new object { }, new { @class = "dropdown-item" })
                         </div>
                     </li>
                 </ul>
@@ -44,20 +45,18 @@
 
         <!--/.Navbar-->
 
-    </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Optičar</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Optičar</p>
+    </footer>
+        @Scripts.Render("~/bundles/jquery")
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 
 </body>
 </html>
