@@ -1,4 +1,4 @@
-﻿@model Opticar.Models.Optics.LenseType
+﻿@model Opticar.Models.Optics.LenseDesign
 
 @{
     ViewBag.Title = @Resources.Global.CreateNew;
@@ -12,7 +12,7 @@
 {
     @Html.AntiForgeryToken()
     <div class="card">
-        <h3 class="card-header">Vrsta sočiva</h3>
+        <h3 class="card-header">Dizajn sočiva</h3>
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
