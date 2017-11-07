@@ -14,7 +14,5 @@ namespace Opticar.Models.Optics
         [StringLength(100)]
         [Index("IX_DeliveryTimeDesc", IsUnique = true)]
         public string Description { get; set; }
-
-        public virtual ICollection<Lense> Lenses { get; set; }
     }
 }

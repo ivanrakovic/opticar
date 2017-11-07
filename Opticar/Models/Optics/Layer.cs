@@ -15,8 +15,6 @@ namespace Opticar.Models.Optics
         [Index("IX_LayerName", IsUnique = true)]
         public string Name { get; set; }
         public int ManufacturerId { get; set; }
-
         public virtual Manufacturer Manufacturer { get; set; }
-        public virtual ICollection<Lense> Lenses { get; set; }
     }
 }

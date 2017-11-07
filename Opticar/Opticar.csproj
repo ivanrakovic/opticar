@@ -93,8 +93,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -199,7 +197,6 @@
     <Compile Include="Controllers\DeliveryTimesController.cs" />
     <Compile Include="Controllers\LayersController.cs" />
     <Compile Include="Controllers\LenseDesignsController.cs" />
-    <Compile Include="Controllers\LensesController.cs" />
     <Compile Include="Controllers\LenseTypesController.cs" />
     <Compile Include="Migrations\201711022220406_InitialCreate.cs" />
     <Compile Include="Migrations\201711022220406_InitialCreate.Designer.cs">
@@ -229,18 +226,9 @@
     <Compile Include="Migrations\201711051810007_AddedLenseDesign.Designer.cs">
       <DependentUpon>201711051810007_AddedLenseDesign.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711062214288_AddLense.cs" />
-    <Compile Include="Migrations\201711062214288_AddLense.Designer.cs">
-      <DependentUpon>201711062214288_AddLense.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711072232498_AddLense1.cs" />
-    <Compile Include="Migrations\201711072232498_AddLense1.Designer.cs">
-      <DependentUpon>201711072232498_AddLense1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Optics\DeliveryTime.cs" />
     <Compile Include="Models\Optics\Layer.cs" />
-    <Compile Include="Models\Optics\Lense.cs" />
     <Compile Include="Models\Optics\LenseDesign.cs" />
     <Compile Include="Models\Optics\LenseType.cs" />
     <Compile Include="Models\ViewModels\LayersViewModel.cs" />
@@ -424,11 +412,6 @@
     <Content Include="Views\LenseDesigns\Details.cshtml" />
     <Content Include="Views\LenseDesigns\Edit.cshtml" />
     <Content Include="Views\LenseDesigns\Index.cshtml" />
-    <Content Include="Views\Lenses\Create.cshtml" />
-    <Content Include="Views\Lenses\Delete.cshtml" />
-    <Content Include="Views\Lenses\Details.cshtml" />
-    <Content Include="Views\Lenses\Edit.cshtml" />
-    <Content Include="Views\Lenses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -466,12 +449,6 @@
     <EmbeddedResource Include="Migrations\201711051810007_AddedLenseDesign.resx">
       <DependentUpon>201711051810007_AddedLenseDesign.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711062214288_AddLense.resx">
-      <DependentUpon>201711062214288_AddLense.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711072232498_AddLense1.resx">
-      <DependentUpon>201711072232498_AddLense1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Global.Designer.cs</LastGenOutput>
@@ -483,9 +460,6 @@
       <SubType>Designer</SubType>
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
