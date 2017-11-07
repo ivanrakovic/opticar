@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Opticar.Models.Optics.Lense>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryTime.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Layer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LenseDesign.DisplayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LenseType.DisplayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManufacturerLenseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InternalLenseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lager)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalLager)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Special)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sunglass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Polarisation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrandId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryTime.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Layer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LenseDesign.DisplayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LenseType.DisplayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManufacturerLenseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InternalLenseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lager)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalLager)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Special)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sunglass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Polarisation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrandId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LenseId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LenseId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LenseId })
+        </td>
+    </tr>
+}
+
+</table>

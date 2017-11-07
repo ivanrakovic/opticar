@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Opticar.Models.Optics;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Opticar.Data
 {
@@ -27,7 +28,8 @@ namespace Opticar.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();           
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
 
         public System.Data.Entity.DbSet<Opticar.Models.Optics.DeliveryTime> DeliveryTimes { get; set; }
@@ -37,5 +39,7 @@ namespace Opticar.Data
         public System.Data.Entity.DbSet<Opticar.Models.Optics.LenseType> LenseTypes { get; set; }
 
         public System.Data.Entity.DbSet<Opticar.Models.Optics.LenseDesign> LenseDesigns { get; set; }
+
+        public System.Data.Entity.DbSet<Opticar.Models.Optics.Lense> Lenses { get; set; }
     }
 }

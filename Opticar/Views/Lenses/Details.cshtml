@@ -1,0 +1,130 @@
+﻿@model Opticar.Models.Optics.Lense
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lense</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryTime.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryTime.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Layer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Layer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LenseDesign.DisplayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LenseDesign.DisplayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LenseType.DisplayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LenseType.DisplayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManufacturerLenseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManufacturerLenseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InternalLenseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InternalLenseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lager)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lager)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalLager)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalLager)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Special)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Special)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sunglass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sunglass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Polarisation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Polarisation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrandId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrandId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LenseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

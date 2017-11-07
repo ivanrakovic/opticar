@@ -14,5 +14,7 @@ namespace Opticar.Models.Optics
         [StringLength(100)]
         [Index("IX_LenseTypeDesc", IsUnique = true)]
         public string DisplayName { get; set; }
+
+        public virtual ICollection<Lense> Lenses { get; set; }
     }
 }
