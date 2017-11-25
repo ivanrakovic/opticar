@@ -226,6 +226,10 @@
     <Compile Include="Migrations\201711051810007_AddedLenseDesign.Designer.cs">
       <DependentUpon>201711051810007_AddedLenseDesign.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711250908451_Fix.cs" />
+    <Compile Include="Migrations\201711250908451_Fix.Designer.cs">
+      <DependentUpon>201711250908451_Fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Optics\DeliveryTime.cs" />
     <Compile Include="Models\Optics\Layer.cs" />
@@ -292,6 +296,7 @@
     <Content Include="ClientUI\js\bootstrap.js" />
     <Content Include="ClientUI\js\bootstrap.min.js" />
     <Content Include="ClientUI\js\jquery-3.2.1.min.js" />
+    <Content Include="ClientUI\js\validation\form_validation.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -448,6 +453,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711051810007_AddedLenseDesign.resx">
       <DependentUpon>201711051810007_AddedLenseDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711250908451_Fix.resx">
+      <DependentUpon>201711250908451_Fix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Global.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
