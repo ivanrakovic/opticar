@@ -1,4 +1,9 @@
-﻿$(function () {
+﻿var Optics = Optics || {};
+
+Optics.validation = $(function () {
+
+    var me = {};
+
     // Initialize form validation on the registration form.
     // It has the name attribute "registration"
     $("form[name='Diameter']").validate({
@@ -26,4 +31,6 @@
             form.submit();
         }
     });
-});
+
+    return me;
+}(jQuery));
