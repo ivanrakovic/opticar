@@ -27,6 +27,11 @@ Optics.validation = $(function () {
                 required: true,
                 minlength: 2,
                 maxlength: 50
+            },
+            DisplayName: {
+                required: true,
+                minlength: 2,
+                maxlength: 50
             }
         },
         // Specify validation error messages
@@ -49,6 +54,11 @@ Optics.validation = $(function () {
                 minlength: Optics.localization.msg.minlength,
                 maxlength: Optics.localization.msg.maxlength
             },
+            DisplayName: {
+                required: Optics.localization.msg.required,
+                minlength: Optics.localization.msg.minlength,
+                maxlength: Optics.localization.msg.maxlength
+            }
             
         },
         // Make sure the form is submitted to the destination defined

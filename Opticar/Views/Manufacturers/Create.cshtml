@@ -1,13 +1,14 @@
 ﻿@model Opticar.Models.Optics.Manufacturer
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = Resources.Global.CreateNew;
+    Html.EnableClientValidation(false);
 }
 
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Manufacturers", FormMethod.Post, new { name = "DeliveryTimes", @class = "js-valid" }))
 {
     @Html.AntiForgeryToken()
     
@@ -24,17 +25,19 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="submit" class="btn btn-default">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>   @Resources.Global.Commit
+                </button>
             </div>
         </div>
     </div>
 }
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resources.Global.BackToList, "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/optics")
 }

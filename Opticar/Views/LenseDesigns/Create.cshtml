@@ -2,13 +2,14 @@
 
 @{
     ViewBag.Title = @Resources.Global.CreateNew;
+    Html.EnableClientValidation(false);
 }
 
 <h2>@Resources.Global.CreateNew</h2>
 
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "LenseDesigns", FormMethod.Post, new { name = "LenseDesigns", @class = "js-valid" }))
 {
     @Html.AntiForgeryToken()
     <div class="card">
@@ -45,4 +46,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/optics")
 }
