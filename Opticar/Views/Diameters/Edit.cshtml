@@ -2,12 +2,12 @@
 
 @{
     ViewBag.Title = "Edit";
+    Html.EnableClientValidation(false);
 }
 
 <h2>Edit</h2>
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Diameters", FormMethod.Post, new { name = "Diameter", @class = "js-valid" }))
 {
     @Html.AntiForgeryToken()
     
@@ -39,4 +39,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/optics")
 }

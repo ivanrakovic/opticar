@@ -297,6 +297,7 @@
     <Content Include="ClientUI\js\bootstrap.min.js" />
     <Content Include="ClientUI\js\jquery-3.2.1.min.js" />
     <Content Include="ClientUI\js\optics\optics.js" />
+    <Content Include="ClientUI\js\optics\optics.localization.js" />
     <Content Include="ClientUI\js\optics\optics.validation.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

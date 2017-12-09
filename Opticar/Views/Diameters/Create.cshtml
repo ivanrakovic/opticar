@@ -8,7 +8,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm("Create", "Diameters", FormMethod.Post, new { name = "Diameter" }))
+@using (Html.BeginForm("Create", "Diameters", FormMethod.Post, new { name = "Diameter", @class = "js-valid"}))
 {
     @Html.AntiForgeryToken()
     

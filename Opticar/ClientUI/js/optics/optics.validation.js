@@ -6,7 +6,7 @@ Optics.validation = $(function () {
 
     // Initialize form validation on the registration form.
     // It has the name attribute "registration"
-    $("form[name='Diameter']").validate({
+    $("form.js-valid").validate({
         // Specify validation rules
         rules: {
             
@@ -14,15 +14,41 @@ Optics.validation = $(function () {
                 required: true,
                 number: true,
                 range: [10, 100]
+            },
+            Description: {
+                required: true,
+                minlength: 2,
+                maxlength: 50
+            },
+            ManufacturerId: {
+                required: true
+            },
+            Name: {
+                required: true,
+                minlength: 2,
+                maxlength: 50
             }
         },
         // Specify validation error messages
         messages: {
             Value: {
-                required: "Polje mora biti popunjeno.",
-                number: "Morate uneti broj.",
-                range: "Unesite broj izmedju 10 i 100."
-            }
+                required: Optics.localization.msg.required,
+                number: Optics.localization.msg.number,
+                range: Optics.localization.msg.range
+            },
+            Description: {
+                required: Optics.localization.msg.required,
+                minlength: Optics.localization.msg.minlength,
+                maxlength: Optics.localization.msg.maxlength
+            },
+            ManufacturerId: {
+                required: Optics.localization.msg.required
+            },
+            Name: {
+                required: Optics.localization.msg.required,
+                minlength: Optics.localization.msg.minlength,
+                maxlength: Optics.localization.msg.maxlength
+            },
             
         },
         // Make sure the form is submitted to the destination defined

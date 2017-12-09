@@ -1,7 +1,8 @@
 ﻿@model Opticar.Models.ViewModels.LayersViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = @Resources.Global.Create;
+    Html.EnableClientValidation(false);
 }
 
 <h2>Dodavanje novih slojeva</h2>
@@ -10,7 +11,7 @@
 </p>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Layers", FormMethod.Post, new { name = "Layers", @class = "js-valid" }))
 {
     @Html.AntiForgeryToken()
 
@@ -55,4 +56,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/optics")
 }
