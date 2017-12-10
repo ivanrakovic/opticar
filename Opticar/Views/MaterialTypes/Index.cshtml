@@ -24,8 +24,8 @@
         </td>
         <td>
             @Html.ActionLink(Resources.Global.Edit, "Edit", new { id = item.MaterialTypeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaterialTypeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaterialTypeId })
+            @Html.ActionLink(Resources.Global.Details, "Details", new { id = item.MaterialTypeId }) |
+            @Html.ActionLink(Resources.Global.Delete, "Delete", new { id = item.MaterialTypeId })
         </td>
     </tr>
 }

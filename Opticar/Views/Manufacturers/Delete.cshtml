@@ -1,7 +1,7 @@
 ﻿@model Opticar.Models.Optics.Manufacturer
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = @Resources.Global.Delete;
 }
 
 <h2>Delete</h2>
@@ -25,7 +25,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="@Resources.Global.Delete" class="btn btn-default" /> |
             @Html.ActionLink(@Resources.Global.BackToList, "Index")
         </div>
     }
