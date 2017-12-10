@@ -233,7 +233,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Optics\DeliveryTime.cs" />
     <Compile Include="Models\Optics\Layer.cs" />
+    <Compile Include="Models\Optics\Lense.cs" />
     <Compile Include="Models\Optics\LenseDesign.cs" />
+    <Compile Include="Models\Optics\LenseDetails.cs" />
     <Compile Include="Models\Optics\LenseType.cs" />
     <Compile Include="Models\ViewModels\LayersViewModel.cs" />
     <Compile Include="Resources\Global.Designer.cs">
