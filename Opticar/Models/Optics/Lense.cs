@@ -22,6 +22,6 @@ namespace Opticar.Models.Optics
         public bool Special { get; set; }
         public virtual Layer Layer { get; set; }
         public virtual Material Material { get; set; }
-        
+        public virtual LenseType LenseType { get; set; }
     }
 }
