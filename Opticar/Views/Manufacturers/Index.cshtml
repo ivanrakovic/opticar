@@ -23,7 +23,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ManufacturerId }) |
+            @Html.ActionLink(Resources.Global.Edit, "Edit", new { id = item.ManufacturerId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ManufacturerId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ManufacturerId })
         </td>

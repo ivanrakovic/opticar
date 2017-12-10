@@ -1,18 +1,20 @@
-﻿@model Opticar.Models.Optics.MaterialType
+﻿@using Resources
+@model Opticar.Models.Optics.MaterialType
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = Global.Edit;
+    Html.EnableClientValidation(false);
 }
 
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "MaterialTypes", FormMethod.Post, new { name = "MaterialTypes", @class = "js-valid" }))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>MaterialType</h4>
+        <h4>Material Type</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.MaterialTypeId)
@@ -27,16 +29,17 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="@Global.Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Global.BackToList, "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/optics")
 }

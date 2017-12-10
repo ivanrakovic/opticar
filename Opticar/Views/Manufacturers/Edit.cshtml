@@ -1,13 +1,15 @@
-﻿@model Opticar.Models.Optics.Manufacturer
+﻿@using Resources
+@model Opticar.Models.Optics.Manufacturer
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = @Global.Edit;
+    Html.EnableClientValidation(false);
 }
 
-<h2>Edit</h2>
+<h2>@Global.Edit:</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Manufacturers", FormMethod.Post, new { name = "Manufacturers", @class = "js-valid" }))
 {
     @Html.AntiForgeryToken()
     
@@ -27,16 +29,17 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="@Global.Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resources.Global.BackToList, "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/optics")
 }
