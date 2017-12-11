@@ -39,5 +39,7 @@ namespace Opticar.Data
         public DbSet<LenseType> LenseTypes { get; set; }
 
         public DbSet<LenseDesign> LenseDesigns { get; set; }
+
+        public System.Data.Entity.DbSet<Opticar.Models.Optics.Lense> Lenses { get; set; }
     }
 }
